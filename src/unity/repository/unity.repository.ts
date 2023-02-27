@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateUnityDto } from '../dto/create-unity.dto';
 
 @Injectable()
 export class UnityRepository {
@@ -24,5 +25,9 @@ export class UnityRepository {
     });
 
     return { results, totalItems };
+  }
+
+  create(createUnityDTO: CreateUnityDto) {
+    this.prisma.unity.create({ data: createUnityDTO });
   }
 }

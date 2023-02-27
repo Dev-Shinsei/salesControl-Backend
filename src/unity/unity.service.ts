@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { UnityRepository } from './repository/unity';
+import { CreateUnityDto } from './dto/create-unity.dto';
+import { UnityRepository } from './repository/unity.repository';
 
 @Injectable()
 export class UnityService {
@@ -33,5 +34,9 @@ export class UnityService {
         endIndex: currentPage * size + (size - 1),
       },
     };
+  }
+
+  async create(createUnityDTO: CreateUnityDto) {
+    return await this.repository.create(createUnityDTO);
   }
 }

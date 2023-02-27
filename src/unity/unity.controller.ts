@@ -18,5 +18,7 @@ export class UnityController {
   }
 
   @Post()
-  create(@Body() createUnityDTO: CreateUnityDto);
+  async create(@Body() createUnityDTO: CreateUnityDto) {
+    return await this.unityService.create(createUnityDTO);
+  }
 }
