@@ -28,6 +28,6 @@ export class UnityRepository {
   }
 
   create(createUnityDTO: CreateUnityDto) {
-    this.prisma.unity.create({ data: createUnityDTO });
+    return this.prisma.unity.create({ data: createUnityDTO });
   }
 }
